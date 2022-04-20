@@ -17,7 +17,7 @@ Go to the `Repositories` tab and click `Create Repository`. Give it a name and m
     - `export PATH=$PATH:/usr/local/go/bin`
 - install webhook with github:
     - `go install github.com/adnanh/webhook@latest`
-- restart script: 
+- restart script: restart.sh
 ``` 
     #!/bin/sh    
     #stop old container  
@@ -29,5 +29,22 @@ Go to the `Repositories` tab and click `Create Repository`. Give it a name and m
     #run new image  
     sudo docker run -d --name mysite --rm -p 80:80 breeskinner/ceg3120-project5:latest  
  ``` 
-
+Stops container mysite and then gets rid of all unused containers. Then pulls the latest version of mysite and runs it detatched on port 80.  
+- webhook task definition file: redeploy.json
+```
+[
+	{
+		"id": "mysite",
+		"execute-command": "/home/ubuntu/cicd-3120-breeskinner/restart.sh",
+		"command-working-directory": "/home/ubuntu/cicd-3120-breeskinner"
+	}
+]
+```
+id is the name of which webhook it's using  
+ececute-command is where the script that tells what commands to do (if that makes sense)  
+command-working-directory is where the script is located  
+- created a webhook on dockerhub:
+    - named it deploy with this url: `http://52.202.140.117:9000/hooks/mysite`
+- run the webhook:
+    - `/home/ubuntu/go/bin/webhook -hooks redeploy.json --verbose`
 ## Part 4 - Diagramming

@@ -1,0 +1,7 @@
+[
+	{
+		"id": "mysite",
+		"execute-command": "/home/ubuntu/cicd-3120-breeskinner/restart.sh",
+		"command-working-directory": "/home/ubuntu/cicd-3120-breeskinner"
+	}
+]

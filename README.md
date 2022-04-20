@@ -9,4 +9,26 @@ Go to the `Repositories` tab and click `Create Repository`. Give it a name and m
 ## Part 3 - Deployment  
 - install docker:
     - `sudo apt install docker.io`
+- install go:
+    - `wget https://go.dev/dl/go1.18.1.linux-amd64.tar.gz`
+- open tar file:
+    - `sudo tar -C /usr/local -xzf go1.18.1.linux-amd64.tar.gz`
+- add go to PATH:
+    - `export PATH=$PATH:/usr/local/go/bin`
+- install webhook with github:
+    - `go install github.com/adnanh/webhook@latest`
+- restart script:
+`
+#!/bin/sh
+
+#stop old container
+sudo docker stop mysite
+#prune old images
+sudo docker system prune -f -a
+#pull new image
+sudo docker pull breeskinner/ceg3120-project5:latest
+#run new image
+sudo docker run -d --name mysite --rm -p 80:80 breeskinner/ceg3120-project5:latest
+`
+
 ## Part 4 - Diagramming

@@ -17,9 +17,8 @@ Go to the `Repositories` tab and click `Create Repository`. Give it a name and m
     - `export PATH=$PATH:/usr/local/go/bin`
 - install webhook with github:
     - `go install github.com/adnanh/webhook@latest`
-- restart script:
-`
-#!/bin/sh  
+- restart script:  
+`#!/bin/sh  
   
 #stop old container  
 sudo docker stop mysite  

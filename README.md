@@ -19,16 +19,16 @@ Go to the `Repositories` tab and click `Create Repository`. Give it a name and m
     - `go install github.com/adnanh/webhook@latest`
 - restart script:
 `
-#!/bin/sh
-
-#stop old container
-sudo docker stop mysite
-#prune old images
-sudo docker system prune -f -a
-#pull new image
-sudo docker pull breeskinner/ceg3120-project5:latest
-#run new image
-sudo docker run -d --name mysite --rm -p 80:80 breeskinner/ceg3120-project5:latest
-`
+#!/bin/sh  
+  
+#stop old container  
+sudo docker stop mysite  
+#prune old images  
+sudo docker system prune -f -a  
+#pull new image  
+sudo docker pull breeskinner/ceg3120-project5:latest  
+#run new image  
+sudo docker run -d --name mysite --rm -p 80:80 breeskinner/ceg3120-project5:latest  
+`  
 
 ## Part 4 - Diagramming

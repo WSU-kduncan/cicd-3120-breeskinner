@@ -50,5 +50,5 @@ command-working-directory is where the script is located
 ## Part 4 - Diagramming  
 ```mermaid
 graph TD;
-    A[Changes are made locally to website files and pushed to GitHub]-->B{}
+    A[Changes are made locally to website files and pushed to GitHub]-->B{};
 ```

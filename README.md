@@ -50,5 +50,8 @@ command-working-directory is where the script is located
 ## Part 4 - Diagramming  
 ```mermaid
 graph TD;
-    A[Changes are made locally to website files and pushed to GitHub]-->B{Build-push action builds and pushes new container image to DockerHub with the latest tag};
+    A[Changes are made locally to website files and pushed to GitHub]-->B[Build-push action builds and pushes new container image to DockerHub with the latest tag];
+    B-->C[While the server is listening by running `/home/ubuntu/go/bin/webhook -hooks redeploy.json --verbose` redeploy.json runs the restart script];
+    C-->D[With the Webhook set up on DockerHub, it sees a change has been made and queries the webhook];
+    D-->E[While the server is still listing, the website should automatically update];
 ```

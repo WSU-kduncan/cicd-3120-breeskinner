@@ -47,4 +47,8 @@ command-working-directory is where the script is located
     - named it deploy with this url: `http://52.202.140.117:9000/hooks/mysite`
 - run the webhook:
     - `/home/ubuntu/go/bin/webhook -hooks redeploy.json --verbose`
-## Part 4 - Diagramming
+## Part 4 - Diagramming  
+```mermaid
+graph TD;
+    A[Changes are made locally to website files and pushed to GitHub]-->B{}
+```
